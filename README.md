@@ -23,3 +23,24 @@ Note, what is considered bad or good is fully subjective. If you peers do not li
 
 And this is how digital resources gets sorted in the network. Different content will gravitate to different parts of the overall network and only that content which everyone agrees on is spam, will be dropped by everyone. Content that everyone feels is the most valuable, will be propagated the most and persist the longest in the network.
 
+## Nostr and ZAPS
+We believe it is possible to marry the concept of ZAPs and Peercuration, by integrating the relative value of a ZAP into the calculation of the score.
+
+### What is a ZAP?
+When you send BTC to a signer of a note in Nostr, this is called a ZAP. It is a great way of rewarding good content and intuitevly it should also be leveratge to weed out bad content (no reward) from good content (signer ZAPed lots of BTC). However, there is a catch! Since value is subjective, someone that loves cat might ZAP 1 BTC to a cat post, and people that love dog might ZAP 2 BTC to a post about dogs. The problem of using amount of ZAPs a post is rewarded with, is that the cat lover will now see only the dog posts because they were rewarded more ZAPs. And perhaps even worse, they dog lover might have created a sockpuppet account so the dog lover can send ZAPs to himself to boost the dog posts in the sorting algorithm without actually loosing any BTC. The good news is, we believe there is a solution to both of these problems!
+
+### How to integrate ZAP into Peercuration.
+The fundamental idea of peercuration, is that a user will rely on its web of trust for sifting through content and sort out the good from the bad. The user could even be running several different instances of the Peercuration mechanism and have a Peercuration group dedicated to cats and another dedicated to dogs. This way different types of content can compete with the content type if belongs to which is what we want. However even if the Peercuration score is created by drawing on the average score of the Peergroup, a wealthy user will be able to ZAP tremendous amounts compared to other peers in the group! To solve this issue, the ZAPs are not integrated at face value, instead the score gets calculated by comparing each individual peer with its history. Thus all peers in a Peercuration group have equal weighting to one another, not matter their particualt economic circumstance.
+
+Example:
+Alice has in total 0.01 BTC, usually ZAP 0.00001 BTC and then ZAPs her entire net worth of 0.01 BTC, because she really loved the note.
+Bob has 200 BTC, usually ZAP 10 BTC and then ZAPs 0.2 BTC, because he thought the post had ok quality.
+Obviously Alice Peercuration score should be much, much higher then Bobs, because she spent all she had.
+By measuring what they usually ZAP, we can normalize their own individual ZAP levels and thus calculate a value between 0 and 1 which measure how much they wanted to reward a specific post compared to how much they usually rewards posts.
+
+If someone have no BTC at all, this is not a problem. Since the users usually do not ZAP the Peercuration score will not be negatively affected by the user not ZAPing, because the user never does.
+
+Likes, reposts, ZAPs can then be averaged together to create the Peercuration score between 0 and 1. Now all the scores in the Peercuration group can be combined and create an average score.
+
+
+
