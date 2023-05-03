@@ -1,5 +1,3 @@
-Add me on Nostr: npub1vyx0u5p8jk7p4kdq8zqhgleye3uxc4zqe8auft9jv2vqkrmu8f5q66muvc
-
 # Peercuration
 
 ## TL;DR
